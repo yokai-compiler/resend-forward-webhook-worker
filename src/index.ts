@@ -35,7 +35,7 @@ export default {
 			await resend.emails.receiving.forward({
 				emailId: result.data.email_id,
 				to: env.FORWARD_TO_EMAIL,
-				from: env.FORWARD_FROM_EMAIL,
+				from: `${result.data.from.replace('@', '.at.')}+${env.FORWARD_FROM_EMAIL}`,
 			});
 
 			return new Response('OK Email Sent');
