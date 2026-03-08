@@ -34,8 +34,8 @@ export default {
 
 			resend.emails.receiving.forward({
 				emailId: result.data.email_id,
-				to: env.FORWARD_MAIL_TARGET,
-				from: result.data.from,
+				to: env.FORWARD_TO_EMAIL,
+				from: env.FORWARD_FROM_EMAIL,
 			});
 
 			return new Response('OK');
