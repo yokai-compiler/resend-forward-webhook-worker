@@ -32,13 +32,13 @@ export default {
 				return new Response('OK');
 			}
 
-			resend.emails.receiving.forward({
+			await resend.emails.receiving.forward({
 				emailId: result.data.email_id,
 				to: env.FORWARD_TO_EMAIL,
 				from: env.FORWARD_FROM_EMAIL,
 			});
 
-			return new Response('OK');
+			return new Response('OK Email Sent');
 		} catch {
 			return new Response('Invalid webhook', { status: 400 });
 		}
